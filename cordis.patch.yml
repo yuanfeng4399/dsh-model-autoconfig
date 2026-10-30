@@ -1,0 +1,10 @@
+# dsh-model-autoconfig：统一模型规格
+#
+# 在「设置 → 模型」页底部加一张卡片：填一次上下文窗口、输出上限和图片支持，
+# 一键写入所有外部 API 提供方的每个模型。官方 DeepSeek 路由不受影响。
+#
+# 插件只做写入。删除它之后，DSH 的行为与原版完全一致，
+# 区别仅在于那些已经写进 llm-pi-ai 配置的模型值仍然保留。
+- insert:
+    - id: model-autoconfig
+      name: 'dsh-model-autoconfig'

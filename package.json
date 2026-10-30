@@ -1,0 +1,63 @@
+{
+  "name": "dsh-model-autoconfig",
+  "version": "0.4.1",
+  "description": "一键把上下文窗口、输出上限、图片支持与思考档位写入所有外部 API 提供方的模型，并可设定切换模型时使用的默认思考档位。不改 DSH 本体，不联网、不轮询、不注入 DOM；删除插件后除这些模型值以外，DSH 与原版没有任何区别。",
+  "private": false,
+  "type": "module",
+  "engines": {
+    "dsh": ">=0.1.7-rc.2",
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings-models",
+        "@deepseek-ai/dsh-api-remotes"
+      ],
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "build": "tsdown -c tsdown.config.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.4"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "~4.0.4",
+    "@types/node": "^22.15.21",
+    "@types/react": "~18.3.1",
+    "@types/react-dom": "~18.3.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsdown": "^0.22.14",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "plugin",
+    "llm-pi-ai",
+    "context-window",
+    "reasoning-effort",
+    "bulk-settings"
+  ],
+  "license": "MIT"
+}

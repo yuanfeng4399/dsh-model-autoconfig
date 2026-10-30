@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# build/test output
+test/out/
+*.tsbuildinfo
+
+# logs & editor noise
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# local env / secrets — never commit these
+.env
+.env.*
+*.pem
+*.key
